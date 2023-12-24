@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cute Animated Cat</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #cat-container {
+            position: relative;
+            display: inline-block;
+            text-align: center; /* Center-align text */
+        }
+
+        #cat-image {
+            max-width: 100%; /* Make the image responsive */
+            height: auto;
+        }
+
+        .envelope {
+            position: absolute;
+            cursor: pointer;
+        }
+
+        #caption {
+            margin-top: 30px; /* Adjust the spacing between the image and the text */
+            position: relative; /* Set to relative for positioning the envelope */
+        }
+
+        #heart-icon {
+            display: inline-block;
+            margin-left: 5px; /* Adjust the spacing between the text and the heart icon */
+        }
+
+        #message-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ccc;
+            display: none;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+
+<div id="cat-container">
+    <!-- Animated cat image -->
+    <img src="https://i.pinimg.com/236x/97/07/dd/9707ddbef620d0e91d6e799ff20b59bc.jpg" alt="Animated Cat" id="cat-image">
+
+    <!-- Envelopes positioned around the image -->
+    <div class="envelope" style="top: 0; left: 50%;" onclick="showMessage('Smile!')">💌</div>
+    <div class="envelope" style="left: 0; top: 50%;" onclick="showMessage('Hello')">💌</div>
+    <div class="envelope" style="right: 0; top: 50%;" onclick="showMessage('Meow')">💌</div>
+
+    <!-- Line of text below the image with a heart icon -->
+    <div id="caption">
+        <div class="envelope" style="top: -20px; left: 50%;" onclick="showMessage('Yo')">💌</div>
+        Open envelopes :)<span id="heart-icon">❤️</span>
+    </div>
+</div>
+
+<!-- Message container -->
+<div id="message-container"></div>
+
+<script>
+    function showMessage(message) {
+        // Display the message in a custom container
+        var messageContainer = document.getElementById("message-container");
+        messageContainer.innerText = message;
+        messageContainer.style.display = "block";
+
+        // Hide the message after a short delay (e.g., 2 seconds)
+        setTimeout(function () {
+            messageContainer.style.display = "none";
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
